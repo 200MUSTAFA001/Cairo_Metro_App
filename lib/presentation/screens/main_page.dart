@@ -1,10 +1,10 @@
+import 'package:cairo_metro_guide_app/presentation/screens/second_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metro_oop/presentation/screens/home_page.dart';
-import 'package:metro_oop/presentation/screens/second_page.dart';
 
 import '../widgets/custom_app_bar.dart';
+import 'home_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({super.key});
@@ -45,8 +45,8 @@ class _MainPageState extends State<MainPage> {
         onPageChanged: (value) {
           currentIndex.value = value;
         },
-        children: [
-          const HomePage(),
+        children: const [
+          HomePage(),
           SecondPage(),
         ],
       ),

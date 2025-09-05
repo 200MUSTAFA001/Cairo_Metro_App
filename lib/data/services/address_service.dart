@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:metro_oop/data/models/location_model.dart';
 
 import '../../api_key.dart';
+import '../models/location_model.dart';
 
 class LocationService {
   final dio = Dio();

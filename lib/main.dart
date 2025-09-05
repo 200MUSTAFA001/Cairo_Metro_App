@@ -1,6 +1,6 @@
+import 'package:cairo_metro_guide_app/presentation/screens/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:metro_oop/presentation/screens/main_page.dart';
 
 void main() {
   runApp(const MyApp());

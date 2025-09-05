@@ -2,9 +2,9 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:metro_oop/data/models/station_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../models/station_model.dart';
 import 'metro_list.dart';
 
 locationPermission() async {

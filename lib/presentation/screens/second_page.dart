@@ -2,10 +2,10 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_workers/utils/debouncer.dart';
-import 'package:metro_oop/data/logic/functions.dart';
-import 'package:metro_oop/data/models/location_model.dart';
-import 'package:metro_oop/data/services/address_service.dart';
 
+import '../../data/logic/functions.dart';
+import '../../data/models/location_model.dart';
+import '../../data/services/address_service.dart';
 import '../widgets/locations_list.dart';
 import '../widgets/selected_address_card.dart';
 

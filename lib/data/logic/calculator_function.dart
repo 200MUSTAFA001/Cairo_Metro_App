@@ -2,8 +2,8 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:metro_oop/data/models/station_model.dart';
 
+import '../models/station_model.dart';
 import 'metro_list.dart';
 
 swapStations({required inputStart, required inputEnd}) {
