@@ -12,7 +12,7 @@ class LocationService {
     try {
       const baseUrl = "https://api.locationiq.com/v1";
       final url =
-          "$baseUrl/autocomplete?key=$apiKey&q=$location&countrycodes=eg";
+          "$baseUrl/autocomplete?key=$apiKey&q=$location&countrycodes=eg&accept-language=ar";
       final response = await dio.get(url);
       final jsonString = json.encode(response.data);
       final result = locationModelFromJson(jsonString);

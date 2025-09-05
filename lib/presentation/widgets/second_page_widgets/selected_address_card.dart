@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../data/models/location_model.dart';
+import '../../../data/models/location_model.dart';
 
 class SelectedAddressCard extends StatelessWidget {
   const SelectedAddressCard({

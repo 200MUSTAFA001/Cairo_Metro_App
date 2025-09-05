@@ -1,3 +1,4 @@
+import 'package:cairo_metro_guide_app/presentation/widgets/second_page_widgets/not_selected_address.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,8 +7,8 @@ import 'package:get/get_rx/src/rx_workers/utils/debouncer.dart';
 import '../../data/logic/functions.dart';
 import '../../data/models/location_model.dart';
 import '../../data/services/address_service.dart';
-import '../widgets/locations_list.dart';
-import '../widgets/selected_address_card.dart';
+import '../widgets/second_page_widgets/locations_list.dart';
+import '../widgets/second_page_widgets/selected_address_card.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
@@ -41,16 +42,7 @@ class _SecondPageState extends State<SecondPage> {
         slivers: [
           const SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Icon(
-                Icons.info_outline,
-                size: 30,
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(left: 8, top: 12, bottom: 12, right: 4),
+              padding: EdgeInsets.only(left: 8, top: 12, right: 4),
               child: Text(
                 "This Feature Allows You To know The Nearest Station To Your Arrival Point",
                 style: TextStyle(
@@ -62,6 +54,13 @@ class _SecondPageState extends State<SecondPage> {
               ),
             ),
           ),
+          Obx(() {
+            if (address.value != null) {
+              return SelectedAddressCard(address: address);
+            } else {
+              return const NotSelectedAddress();
+            }
+          }),
           SliverToBoxAdapter(
             child: Column(
               children: [
@@ -80,18 +79,20 @@ class _SecondPageState extends State<SecondPage> {
                           },
                           controller: featureInput,
                           decoration: InputDecoration(
-                              border: const OutlineInputBorder(),
-                              labelText: "Please Enter Your Arrival Point",
-                              suffix: IconButton(
-                                  onPressed: () {
-                                    onChangedBool.value = false;
-                                    featureInput.clear();
-                                    address.value = null;
-                                    addressesList.clear();
-                                  },
-                                  icon: const Icon(Icons.clear))),
+                            border: const OutlineInputBorder(),
+                            labelText: "Please Enter Your Arrival Point",
+                            suffix: IconButton(
+                              onPressed: () {
+                                onChangedBool.value = false;
+                                featureInput.clear();
+                                address.value = null;
+                                addressesList.clear();
+                              },
+                              icon: const Icon(Icons.clear),
+                            ),
+                          ),
                           onChanged: (value) {
-                            getLocation(value);
+                            if (value.isNotEmpty) getLocation(value);
                           },
                         ),
                       ),
@@ -120,13 +121,17 @@ class _SecondPageState extends State<SecondPage> {
               ],
             ),
           ),
-          Obx(() {
-            if (address.value != null) {
-              return SelectedAddressCard(address: address);
-            } else {
-              return const SliverToBoxAdapter();
-            }
-          }),
+          const SliverToBoxAdapter(
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  "Addresses list",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+          ),
           LocationsList(
               addressesList: addressesList,
               address: (value) {

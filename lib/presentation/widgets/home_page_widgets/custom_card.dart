@@ -17,7 +17,7 @@ class CustomCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 5,
+      elevation: 3,
       child: ListTile(
         leading: Icon(icon, color: Colors.blue, size: 30),
         title: Text(

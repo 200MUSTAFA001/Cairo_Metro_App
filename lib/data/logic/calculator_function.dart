@@ -6,12 +6,16 @@ import 'package:get/get.dart';
 import '../models/station_model.dart';
 import 'metro_list.dart';
 
-swapStations({required inputStart, required inputEnd}) {
+swapStations({
+  required TextEditingController inputStart,
+  required TextEditingController inputEnd,
+}) {
   String temp = inputStart.text;
   inputStart.text = inputEnd.text;
   inputEnd.text = temp;
 }
 
+//  Don't Touch Its Art
 metroFunction({
   required TextEditingController inputStart,
   required TextEditingController inputEnd,
@@ -736,13 +740,7 @@ metroFunction({
     price.value = 0;
   }
 
-  final allLines = <Station>[];
-  allLines.addAll(line1class);
-  allLines.addAll(line2class);
-  allLines.addAll(line3class);
-  allLines.addAll(line3branchclass);
-
-  for (Station value1 in allLines) {
+  for (Station value1 in allStationsList) {
     if (value1.stationName.toLowerCase() == startField) {
       final theStart = Station(
           stationName: value1.stationName,
@@ -750,7 +748,7 @@ metroFunction({
           longitude: value1.longitude,
           distance: 0);
 
-      for (Station value in allLines) {
+      for (Station value in allStationsList) {
         if (value.stationName.toLowerCase() == endField) {
           final theEnd = Station(
               stationName: value.stationName,

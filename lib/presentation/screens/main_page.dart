@@ -7,7 +7,7 @@ import '../widgets/custom_app_bar.dart';
 import 'home_page.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
